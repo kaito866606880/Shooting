@@ -95,7 +95,7 @@ public class GameFrame extends MyFrame{
 				}
 			}
 			if(hits>0) {
-				//↓コメントアウトすると貫通チート可能
+				//↓チート
 				//GameWorld.playerBullets.remove(i);
 			}else {
 				i++;
