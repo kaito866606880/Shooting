@@ -6,6 +6,7 @@ public class GameFrame extends MyFrame{
 		GameWorld.playerBullets=new Vector<PlayerBullet>();
 		GameWorld.enemies=new Vector<Enemy>();
 		GameWorld.enemies.add(new EnemyBase(100,50,1,0));
+		GameWorld.enterPressed=false;
 		while(true) {
 			clear();
 			GameWorld.player.draw(this);
@@ -17,9 +18,15 @@ public class GameFrame extends MyFrame{
 			if(GameWorld.enemies.size()==0) {
 				setColor(0,0,0);
 				drawString("クリア！",100,200,40);
+				if(GameWorld.enterPressed) {
+					break;
+				}
 			}else if(GameWorld.player.y<0) {
 				setColor(0,0,0);
 				drawString("ゲームオーバー！",50,200,40);
+				if(GameWorld.enterPressed) {
+					break;
+				}
 			}
 			sleep(0.03);
 		}
@@ -78,7 +85,7 @@ public class GameFrame extends MyFrame{
 				}
 			}
 			if(hits>0) {
-				//↓コメントアウトすると貫通チート可能
+				
 				GameWorld.playerBullets.remove(i);
 			}else {
 				i++;
